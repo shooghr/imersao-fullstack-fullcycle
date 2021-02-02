@@ -5,7 +5,7 @@ import (
 
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/codeedu/imersao/codepix-go/domain/model"
+	"github.com/shooghr/imersao-fullstack-fullcycle/codepix-go/domain/model"
 	"github.com/stretchr/testify/require"
 )
 
@@ -22,6 +22,7 @@ func TestModel_NewPixKey(t *testing.T) {
 	key := "j@j.com"
 	pixKey, err := model.NewPixKey(kind, account, key)
 
+    require.Nil(t, err)
 	require.NotEmpty(t, uuid.FromStringOrNil(pixKey.ID))
 	require.Equal(t, pixKey.Kind, kind)
 	require.Equal(t, pixKey.Status, "active")

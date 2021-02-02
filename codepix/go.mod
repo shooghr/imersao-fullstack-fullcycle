@@ -1,4 +1,4 @@
-module github.com/codeedu/imersao/codepix-go
+module github.com/shooghr/imersao-fullstack-fullcycle/codepix-go
 
 go 1.15
 

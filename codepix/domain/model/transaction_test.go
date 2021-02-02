@@ -1,12 +1,10 @@
 package model_test
 
 import (
-	"testing"
-
+    "github.com/shooghr/imersao-fullstack-fullcycle/codepix-go/domain/model"
 	uuid "github.com/satori/go.uuid"
-
-	"github.com/codeedu/imersao/codepix-go/domain/model"
 	"github.com/stretchr/testify/require"
+	"testing"
 )
 
 func TestNewTransaction(t *testing.T) {
@@ -15,11 +13,11 @@ func TestNewTransaction(t *testing.T) {
 	bank, _ := model.NewBank(code, name)
 
 	accountNumber := "abcnumber"
-	ownerName := "Wesley"
+	ownerName := "Ricardo"
 	account, _ := model.NewAccount(bank, accountNumber, ownerName)
 
 	accountNumberDestination := "abcdestination"
-	ownerName = "Mariana"
+	ownerName = "Benjamin"
 	accountDestination, _ := model.NewAccount(bank, accountNumberDestination, ownerName)
 
 	kind := "email"

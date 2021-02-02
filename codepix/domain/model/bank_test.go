@@ -1,12 +1,10 @@
 package model_test
 
 import (
-	"testing"
-
+	"github.com/shooghr/imersao-fullstack-fullcycle/codepix-go/domain/model"
 	uuid "github.com/satori/go.uuid"
-
-	"github.com/codeedu/imersao/codepix-go/domain/model"
 	"github.com/stretchr/testify/require"
+	"testing"
 )
 
 func TestModel_NewBank(t *testing.T) {
