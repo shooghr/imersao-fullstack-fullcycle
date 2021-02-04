@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/shooghr"
+	"github.com/shooghr/imersao-fullstack-fullcycle/codepix-go/domain/model"
 	"log"
 	"os"
 	"path/filepath"
@@ -17,7 +17,7 @@ func init() {
 	_, b, _, _ := runtime.Caller(0)
 	basepath := filepath.Dir(b)
 
-	err := gototenv.Load(basepath + "/../../.env")
+	err := godotenv.Load(basepath + "/../../.env")
 
 	if err != nil {
 		log.Fatalf("Error loading .env files")
@@ -27,10 +27,10 @@ func init() {
 func ConnectDB(env string) *gorm.DB {
 	var dsn string
 	var db *gorm.DB
-	var err Error
+	var err error
 
 	if env != "test" {
-		dns = os.Getenv("dsn")
+		dsn = os.Getenv("dsn")
 		db, err = gorm.Open(os.Getenv("dbType"), dsn)
 	} else {
 		dsn = os.Getenv("dsnTest")
@@ -47,7 +47,7 @@ func ConnectDB(env string) *gorm.DB {
 	}
 
 	if os.Getenv("AutoMigrateDb") == "true" {
-		db.AutoMigrate(&model.Bank{}, &model.Accont{}, &model.PixKey, &model.Transaction{})
+		db.AutoMigrate(&model.Bank{}, &model.Account{}, &model.PixKey{}, &model.Transaction{})
 	}
 
 	return db
