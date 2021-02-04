@@ -27,6 +27,7 @@ func NewAccount(bank *Bank, number string, ownerName string) (*Account, error) {
 	account := Account{
 		OwnerName: ownerName,
 		Bank:      bank,
+		BankID:    bank.ID,
 		Number:    number,
 	}
 	account.ID = uuid.NewV4().String()
